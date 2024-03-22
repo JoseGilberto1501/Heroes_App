@@ -1,5 +1,5 @@
 import { getHeroesByPublisher } from "../helpers"
-import { HeroItem } from "./HeroItem";
+import { HeroCard } from "./HeroCard";
 
 
 export const HeroList = ({ publisher }) => {
@@ -8,13 +8,16 @@ export const HeroList = ({ publisher }) => {
 
   return (
     <>
-        <ul className="list-group list-group-numbered">
+        <div className="row rows-cols-1 row-cols-md-3 g-3">
             {
                 heroes.map( hero => (
-                    <HeroItem key={hero.id} heroes={hero}/>
+                    <HeroCard key={hero.id}
+                    { ...hero }/>
                 ))
             }                    
-        </ul>
+        </div>
     </>
   )
 }
+
+//<HeroItem key={hero.id} heroes={hero}/>
